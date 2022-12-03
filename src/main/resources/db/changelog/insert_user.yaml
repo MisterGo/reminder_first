@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: mistergo
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: username
+                  value: "user"
+              - column:
+                  name: password
+                  value: "$2a$10$P0JBmdgyknZuJkGDdj2lfeCY71nyxcZUM/gxFBmOJl10BTB5aYL3O"
+              - column:
+                  name: enabled
+                  value: true
+              - column:
+                  name: email
+                  value: "my@email.com"
+              - column:
+                  name: telegram_id
+                  value: "@MisterGo"
+        - insert:
+            tableName: authorities
+            columns:
+              - column:
+                  name: user_id
+                  value: 1
+              - column:
+                  name: username
+                  value: "user"
+              - column:
+                  name: authority
+                  value: "ROLE_USER"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: username
+                  value: "admin"
+              - column:
+                  name: password
+                  value: "$2a$10$P0JBmdgyknZuJkGDdj2lfeCY71nyxcZUM/gxFBmOJl10BTB5aYL3O"
+              - column:
+                  name: enabled
+                  value: true
+              - column:
+                  name: email
+                  value: "admin@email.com"
+              - column:
+                  name: telegram_id
+                  value: "@MisterGo"
+        - insert:
+            tableName: authorities
+            columns:
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: username
+                  value: "admin"
+              - column:
+                  name: authority
+                  value: "ROLE_ADMIN"

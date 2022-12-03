@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:postgresql://database:5432/reminder
+    username: postgres
+    password: postgres
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org:
+        quartz:
+          jobStore:
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  main:
+    allow-bean-definition-overriding: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <Your username>
+    password: <Your password>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: <Github client id>
+            client-secret: <Github secret>
+          google:
+            client-id: <Google client id>
+            client-secret: <Google secret>
+
+org:
+  quartz:
+    jobStore:
+      class: org.quartz.impl.jdbcjobstore.JobStoreTX
+      driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+      dataSource: quartzDataSource
+    scheduler:
+      misfirePolicy: doNothing

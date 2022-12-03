@@ -1,0 +1,23 @@
+spring:
+  test:
+    database:
+      replace: none
+  datasource:
+    jdbcUrl: jdbc:h2:mem:test
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        hbm2ddl:
+          auto: create-drop
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
